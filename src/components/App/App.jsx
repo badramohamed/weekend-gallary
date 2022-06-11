@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-import GalleryItem from '../GalleryItem/GalleryItem'; '../GalleryItem/GalleryItem';
 import GalleryList from '../GalleryList/GalleryList'; '../GalleryList/GalleryList';
+// import GalleryItem from '../GalleryItem/GalleryItem';
 
 function App() {
 let [galleryList, setGallery] =useState([]);
@@ -27,7 +27,7 @@ const fetchGallery =()=>{
   const newGalleryItem= (picId)=>{
       axios({
         method: 'PUT', 
-        url: `/gallery/${picId}`
+        url: `/gallery/like/${picId}`
       })
       .then((response)=>{
         console.log('in the put', response)
