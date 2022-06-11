@@ -3,15 +3,13 @@ import {useState} from 'react'
 function GalleryItem({photo, newGalleryItem}){
 const [isImageFlipped, setImageFlipped] = useState(true)
 
-const onHandleClick =() =>{
-newGalleryItem(photo.id);
-}
 
+// toggleimage will be in charge of flipping our image so we can see the description
 const toggleImage = () =>{
     setImageFlipped(!isImageFlipped);
 };
 
-
+//  the return statement which is using ternaries (if else statements)
 return (
     <>
 <div className="photo" key={photo.id}>
