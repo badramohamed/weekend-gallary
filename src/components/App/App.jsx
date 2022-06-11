@@ -1,18 +1,19 @@
 import React from 'react';
 import './App.css';
-import Axios from 'axios';
+import axios from 'axios';
 import {useState, useEffect} from 'react';
-import '../GalleryItem/GalleryItem'
+import GalleryItem from '../GalleryItem/GalleryItem'; '../GalleryItem/GalleryItem';
+import GalleryList from '../GalleryList/GalleryList'; '../GalleryList/GalleryList';
 
 function App() {
-let [gallerList, setGallery] =useState([]);
+let [galleryList, setGallery] =useState([]);
 
 useEffect(()=>{
 fetchGallery();
 }, []);
 
 const fetchGallery =()=>{
- Axios.get('/gallery')
+ axios.get('/gallery')
     .then((response)=>{
       setGallery(response.data);
       console.log('gallery list is:', response.data);
@@ -21,6 +22,20 @@ const fetchGallery =()=>{
       console.log('error in get', err)
     })
 
+  };
+
+  const newGalleryItem= (picId)=>{
+      axios({
+        method: 'PUT', 
+        url: `/gallery/${picId}`
+      })
+      .then((response)=>{
+        console.log('in the put', response)
+        fetchGallery();
+      })
+      .catch((err)=>{
+        console.log('error in put', err);
+  })
   };
 
 
@@ -38,8 +53,10 @@ const fetchGallery =()=>{
           <h1 className="App-title">Gallery of Badra's Life</h1>
         </header>
         <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
-    
+
+      <GalleryList
+      galleryList={galleryList}
+      newGalleryItem={newGalleryItem} />
       </div>
     );
 

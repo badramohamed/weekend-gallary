@@ -1,35 +1,34 @@
-import Axios from "axios"
+import Axios from "axios";
 import {useState} from 'react'
 
-function GalleryItem({gallery,fetchGallery}) {
-    // const [imageFlip, setImageFlip]= useState(false);
-    const addLikes = ()=>{
-    console.log(gallery)
-        Axios.put(`/gallery/likes/${id}`)
-        .then(response=>{
-            console.log('put working');
-            fetchGallery();
-        })
-        .catch(err=>{
-            console.log('error in put');
-        })
-    }
+function GalleryItem({photo, newGalleryItem}){
+const [imageFlipped, setImageFlipped] = useState(true)
+const onHandleClick =() =>{
+newGalleryItem(photo.id);
+}
+const toggleImage = () =>{
+    setImageFlipped(!imageFlipped)
+}
+
+
 return(
-    
 <>
 
-helloo
+
+
+
+
+
+
+
+
+
 </>
+
 
 )
 
 
-
-
-
-
 }
 
-
-
-export default GalleryItem 
+export default GalleryItem;
