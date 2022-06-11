@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 import GalleryList from '../GalleryList/GalleryList'; '../GalleryList/GalleryList';
 // import GalleryItem from '../GalleryItem/GalleryItem';
+// import ImageList from '@mui/material/ImageList';
 
 function App() {
 let [galleryList, setGallery] =useState([]);
@@ -43,10 +44,13 @@ const fetchGallery =()=>{
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of Badra's Life</h1>
+       
+
         </header>
         {/* <p>Gallery goes here</p> */}
-        
+
       {/* gallerylist will append information  */}
+      {/* <ImageList sx={{ width: 500, height: 450 }}/> */}
       <GalleryList
       galleryList={galleryList}
       newGalleryItem={newGalleryItem} />
