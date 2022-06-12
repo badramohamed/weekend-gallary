@@ -6,13 +6,13 @@ const [isImageFlipped, setImageFlipped] = useState(true)
 
 // toggleimage will be in charge of flipping our image so we can see the description
 const toggleImage = () =>{
-    setImageFlipped(!isImageFlipped);
+ setImageFlipped(!isImageFlipped);
 };
 
 //  the return statement which is using ternaries (if else statements)
 return (
     <>
-<div className="photo" key={photo.id}>
+    <div className="photo" key={photo.id}>
  {isImageFlipped ?
     <>
     <img src={photo.path} width={300} height={300}onClick={()=> toggleImage(photo.id)}></img>

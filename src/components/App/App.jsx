@@ -25,7 +25,7 @@ const fetchGallery =()=>{
     })
 
   };
-// Put function that will grab by id and represent images in gallery  
+// PUT function that will grab by id and represent images in gallery  
   const newGalleryItem= (picId)=>{
       axios({
         method: 'PUT', 
@@ -44,12 +44,11 @@ const fetchGallery =()=>{
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of Badra's Life</h1>
-       
-
         </header>
         {/* <p>Gallery goes here</p> */}
 
       {/* gallerylist will append information  */}
+    
       {/* <ImageList sx={{ width: 500, height: 450 }}/> */}
       <GalleryList
       galleryList={galleryList}
